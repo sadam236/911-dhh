@@ -1,0 +1,16 @@
+{
+  "name": "911-dhh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Emergency support web app for Deaf and Hard-of-Hearing users with caller, officer, and backup viewer flows.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check admin.js && node --check backup.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

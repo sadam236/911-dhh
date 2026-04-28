@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>911-DHH Backup Viewer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-body">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Emergency support backup</p>
+        <h1>911-DHH Backup Viewer</h1>
+      </div>
+      <p>Secondary monitoring view for another officer or support team.</p>
+    </header>
+
+    <main>
+      <section class="demo-warning">
+        <strong>Backup viewer:</strong> this page can monitor the caller video while the main emergency officer manages the call.
+      </section>
+
+      <div class="admin-layout">
+        <section class="panel" aria-labelledby="backup-calls-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Incoming calls</p>
+              <h2 id="backup-calls-title">Calls available to monitor</h2>
+            </div>
+            <span id="backup-connection" class="pill">Waiting for calls</span>
+          </div>
+          <div id="backup-calls" class="alerts-list"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="backup-video-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Live caller video</p>
+              <h2 id="backup-video-title">Backup monitoring</h2>
+            </div>
+            <button id="refresh-backup-calls" class="secondary" type="button">Refresh</button>
+          </div>
+
+          <div id="backup-call-detail" class="alert-detail">Select a call to monitor the caller video.</div>
+
+          <div class="video-stage">
+            <div class="video-tile">
+              <video id="backup-remote-video" autoplay playsinline></video>
+              <strong id="backup-remote-label">Caller waiting</strong>
+            </div>
+          </div>
+
+          <div class="quick-actions">
+            <button id="watch-backup-video" class="video-button" type="button">Start Backup Monitoring</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="backup.js"></script>
+  </body>
+</html>

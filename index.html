@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>911-DHH Emergency Support Website</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to emergency tools</a>
+
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">911</div>
+        <div>
+          <h1>911-DHH</h1>
+          <p>Emergency Support for Deaf &amp; Hard-of-Hearing People</p>
+        </div>
+      </div>
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-menu"
+      >
+        Menu
+      </button>
+      <div class="topbar-status">
+        <span class="topbar-indicator" aria-hidden="true"></span>
+        <span id="topbar-location">Location: Ready</span>
+      </div>
+    </header>
+
+    <main id="main">
+      <nav id="main-menu" class="tabs is-collapsed" aria-label="Website sections">
+        <button class="tab active" type="button" data-screen="emergency-screen">Emergency Support</button>
+        <button class="tab" type="button" data-screen="profile-screen">Medical Profile</button>
+      </nav>
+
+      <section id="access-screen" class="screen">
+        <section class="panel access-panel" aria-labelledby="access-title">
+          <p class="eyebrow">Start here</p>
+          <h2 id="access-title">Choose how to use 911-DHH</h2>
+          <p class="lead">Users can register or log in to save personal and medical details, or use emergency support immediately without registration.</p>
+
+          <div class="access-grid">
+            <article class="info-card access-card">
+              <h3>Register / Login</h3>
+              <p>Save name, contact, medical details, and communication preferences for faster support.</p>
+              <button id="go-profile" type="button">Open Registration</button>
+            </article>
+            <article class="info-card access-card urgent-card">
+              <h3>Emergency Support Now</h3>
+              <p>Start the emergency call immediately. The call screen opens fast and video support can begin without registration.</p>
+              <button id="go-emergency" class="danger-button" type="button">Start Emergency Call</button>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section id="emergency-screen" class="screen active">
+        <button id="send-alert" class="danger-button hero-alert-button" type="button">Send Emergency Alert</button>
+
+        <div class="info-strip">
+          <span class="info-strip-icon" aria-hidden="true">i</span>
+          <p>Your information (location, camera, and medical profile) will be shared with emergency services.</p>
+        </div>
+
+        <div class="emergency-layout">
+          <section class="panel video-panel camera-card" aria-labelledby="video-title">
+            <div class="camera-card-header">
+              <div>
+                <p class="eyebrow">Video Support</p>
+                <h2 id="video-title">Your camera is ready</h2>
+                <p class="lead camera-lead">You are ready to send an emergency alert. Your camera is active.</p>
+              </div>
+              <span id="video-status" class="camera-pill">Camera Active</span>
+            </div>
+          <div class="video-stage">
+            <div class="video-tile">
+              <video id="user-video" autoplay muted playsinline></video>
+              <strong id="user-video-label" class="camera-caption">You are visible</strong>
+            </div>
+          </div>
+            <div class="camera-note">
+              <span class="camera-note-icon" aria-hidden="true">i</span>
+              <p>After you press the emergency button, the system will connect you to an emergency officer.</p>
+            </div>
+            <p id="connection-status" class="connection-status">Connection status: Ready to send alert</p>
+          </section>
+
+          <section class="panel status-panel request-card" aria-live="polite" aria-labelledby="progress-title">
+            <p class="eyebrow">Request Status</p>
+            <h2 id="progress-title">Request Progress</h2>
+            <ol id="status-list" class="status-list progress-steps">
+              <li class="progress-step active" data-step="1">
+                <span class="step-number">1</span>
+                <div>
+                  <strong>Ready to send alert</strong>
+                  <p>You can send an emergency alert now.</p>
+                </div>
+              </li>
+              <li class="progress-step" data-step="2">
+                <span class="step-number">2</span>
+                <div>
+                  <strong>Alert sent</strong>
+                  <p>Waiting for system to send your alert.</p>
+                </div>
+              </li>
+              <li class="progress-step" data-step="3">
+                <span class="step-number">3</span>
+                <div>
+                  <strong>Connecting</strong>
+                  <p>Connecting you to an emergency officer.</p>
+                </div>
+              </li>
+              <li class="progress-step" data-step="4">
+                <span class="step-number">4</span>
+                <div>
+                  <strong>Connected</strong>
+                  <p>You are connected to the emergency officer.</p>
+                </div>
+              </li>
+            </ol>
+            <div id="location-box" class="location-box location-card">GPS location has not been shared yet.</div>
+          </section>
+        </div>
+      </section>
+
+      <section id="profile-screen" class="screen">
+        <section class="panel" aria-labelledby="profile-title">
+          <p class="eyebrow">User registration</p>
+          <h2 id="profile-title">Register / Login and medical profile</h2>
+          <p class="lead">Users can save personal and medical details for future emergencies, but urgent text or video support can still start without registration.</p>
+
+          <form id="profile-form" class="profile-form">
+            <label class="field">
+              <span>Full name</span>
+              <input id="profile-name" type="text" value="Amina Hassan" />
+            </label>
+            <label class="field">
+              <span>Age</span>
+              <input id="profile-age" type="number" value="22" min="1" />
+            </label>
+            <label class="field">
+              <span>Communication preference</span>
+              <select id="profile-communication">
+                <option>Text only</option>
+                <option>Text and video sign-language support</option>
+                <option>Large text</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Emergency contact</span>
+              <input id="profile-contact-name" type="text" value="Layla Hassan" />
+            </label>
+            <label class="field">
+              <span>Contact phone or email</span>
+              <input id="profile-contact-info" type="text" value="layla@example.com" />
+            </label>
+            <label class="field">
+              <span>Allergies</span>
+              <input id="profile-allergies" type="text" value="Penicillin" />
+            </label>
+            <label class="field">
+              <span>Medications</span>
+              <input id="profile-medications" type="text" value="Inhaler as needed" />
+            </label>
+            <label class="field wide">
+              <span>Medical notes</span>
+              <textarea id="profile-notes" rows="4">Hard-of-Hearing. Please communicate by text and keep messages short and clear.</textarea>
+            </label>
+            <button type="submit">Save Registration Details</button>
+          </form>
+        </section>
+      </section>
+
+      <section id="dispatcher-screen" class="screen">
+        <div class="dispatcher-layout">
+          <section class="panel" aria-labelledby="alerts-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Emergency officer dashboard</p>
+                <h2 id="alerts-title">Incoming requests</h2>
+              </div>
+              <button id="clear-demo" class="secondary" type="button">Reset Demo</button>
+            </div>
+            <div id="alerts-list" class="alerts-list"></div>
+          </section>
+
+          <aside class="panel">
+            <p class="eyebrow">Selected request</p>
+            <div id="alert-detail" class="alert-detail">Send an emergency alert to see request details.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="plan-screen" class="screen">
+        <section class="panel project-intro" aria-labelledby="project-title">
+          <div>
+            <p class="eyebrow">Final plan</p>
+            <h2 id="project-title">911-DHH: Emergency Support Website for Deaf and Hard-of-Hearing People</h2>
+            <p class="lead">A simple emergency website that helps users contact police, ambulance, or fire services without speaking.</p>
+          </div>
+          <img src="assets/emergency-communication.png" alt="Emergency communication using text and video support" />
+        </section>
+
+        <section class="plan-grid" aria-label="Project details">
+          <article class="info-card">
+            <h3>Problem</h3>
+            <p>Most 911 systems depend on voice calls. Deaf users can face delay, confusion, and dangerous misunderstanding.</p>
+          </article>
+          <article class="info-card">
+            <h3>Solution</h3>
+            <p>Provide an accessible way to contact emergency support through text, live video, GPS location sharing, emergency contact alerts, and stored medical information.</p>
+          </article>
+          <article class="info-card">
+            <h3>Users</h3>
+            <p>Deaf people, Hard-of-Hearing people, emergency officers, and family or emergency contacts.</p>
+          </article>
+          <article class="info-card">
+            <h3>Technology</h3>
+            <p>Frontend with HTML, CSS, and JavaScript, plus PHP or Node.js, MySQL, Geolocation API, real-time messaging, and WebRTC for video call support.</p>
+          </article>
+          <article class="info-card">
+            <h3>How it works</h3>
+            <p>User opens the website, chooses register or immediate support, selects the emergency type, sends the request and location, then continues with text chat or live video.</p>
+          </article>
+          <article class="info-card">
+            <h3>Benefits</h3>
+            <p>Faster help, clearer communication, safer response, accessibility, and less misunderstanding during emergencies.</p>
+          </article>
+          <article class="info-card">
+            <h3>Future Improvements</h3>
+            <p>More languages, AI chatbot support, improved video quality, real SMS alerts, and connection with official 911 systems.</p>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

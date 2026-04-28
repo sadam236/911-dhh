@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>911-DHH Admin Console</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-body">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Emergency services backend</p>
+        <h1>911-DHH Admin Console</h1>
+      </div>
+      <p>Incoming emergency calls, live notifications, text chat, and video answer controls.</p>
+    </header>
+
+    <main>
+      <section class="demo-warning">
+        <strong>Demo backend:</strong> open this page beside the caller page to receive incoming calls and answer by video.
+      </section>
+
+      <div class="admin-layout">
+        <section class="panel" aria-labelledby="incoming-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Incoming calls</p>
+              <h2 id="incoming-title">Emergency requests</h2>
+            </div>
+            <span id="admin-connection" class="pill">Waiting for calls</span>
+          </div>
+          <div id="incoming-calls" class="alerts-list"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="admin-call-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Selected call</p>
+              <h2 id="admin-call-title">Call details and response</h2>
+            </div>
+            <button id="refresh-calls" class="secondary" type="button">Refresh</button>
+          </div>
+
+          <div id="admin-call-detail" class="alert-detail">Select a call to view details.</div>
+
+          <section class="admin-video-stack">
+            <div class="video-stage">
+              <div class="video-tile">
+                <video id="admin-local-video" autoplay muted playsinline></video>
+                <strong id="admin-local-label">Officer camera</strong>
+              </div>
+              <div class="video-tile officer-video" id="admin-remote-tile">
+                <video id="admin-remote-video" autoplay playsinline></video>
+                <strong id="admin-remote-label">Caller waiting</strong>
+              </div>
+            </div>
+            <div class="quick-actions">
+              <button id="answer-video" class="video-button" type="button">Answer Video Call</button>
+              <button id="resolve-call" class="secondary" type="button">Resolve Call</button>
+            </div>
+          </section>
+
+          <section class="panel nested-panel" aria-labelledby="admin-chat-title">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">Text chat</p>
+                <h2 id="admin-chat-title">Messages with caller</h2>
+              </div>
+            </div>
+            <div id="admin-chat-log" class="chat-log"></div>
+            <form id="admin-chat-form" class="chat-form">
+              <label class="sr-only" for="admin-chat-message">Admin message</label>
+              <input id="admin-chat-message" type="text" placeholder="Type a reply to the caller..." autocomplete="off" />
+              <button type="submit">Send</button>
+            </form>
+          </section>
+        </section>
+      </div>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
